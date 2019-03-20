@@ -17,10 +17,21 @@ namespace GearStore.Controllers
             ViewBag.IsHomePage = true;
             return View(_dataContext.Products.OrderByDescending(p=>p.UpdatedDate).Take(6));
         }
+
         [ChildActionOnly]
         public ActionResult Menu()
         {
             return PartialView(_dataContext.Menus.Include(p => p.Categories));
+        }
+
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            return View();
         }
     }
 }

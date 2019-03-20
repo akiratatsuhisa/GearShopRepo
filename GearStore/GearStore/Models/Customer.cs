@@ -11,7 +11,8 @@ namespace GearStore.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,11 @@ namespace GearStore.Models
         }
     
         public int CustomerID { get; set; }
+        [Required]
+        [DataType(DataType.Text)]
         public string Username { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
         public string Email { get; set; }
         public string FullName { get; set; }

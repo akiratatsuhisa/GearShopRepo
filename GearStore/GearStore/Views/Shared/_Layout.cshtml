@@ -526,10 +526,10 @@
                     <div class="topbar__container container">
                         <div class="topbar__row">
                             <div class="topbar__item topbar__item--link">
-                                <a class="topbar-link" href="about-us.html">Giới thiệu</a>
+                                <a class="topbar-link" href="@Url.Action("About","Home")">Giới thiệu</a>
                             </div>
                             <div class="topbar__item topbar__item--link">
-                                <a class="topbar-link" href="contact-us.html">Liên Hệ</a>
+                                <a class="topbar-link" href="@Url.Action("Contact","Home")">Liên Hệ</a>
                             </div>
                             <div class="topbar__item topbar__item--link">
                                 <a class="topbar-link" href="#">Vị Trí</a>
@@ -552,10 +552,7 @@
                                     <div class="topbar-dropdown__body">
                                         <!-- .menu -->
                                         <ul class="menu menu--layout--topbar">
-                                            <li><a href="@Url.Action("SignIn","Account")">Đăng Nhập</a></li>
-                                            <li><a href="@Url.Action("SignUp","Account")">Đăng Kí</a></li>
-                                            <li><a href="#">Đơn Hàng</a></li>
-                                            <li><a href="#">Địa Chỉ</a></li>
+                                            @Html.Partial("_LoginPartial")
                                         </ul>
                                         <!-- .menu / end -->
                                     </div>
