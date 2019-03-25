@@ -91,13 +91,14 @@
     <Property Name="CategoryID" Type="int" Nullable="false" />
     <Property Name="ManufacturerID" Type="int" Nullable="false" />
     <Property Name="Price" Type="decimal" Precision="18" Scale="6" />
-    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="PhotoFilePatch" Type="nvarchar(max)" />
     <Property Name="UnitsInStock" Type="int" />
     <Property Name="UpdatedDate" Type="datetime" />
-    <Property Name="PhotoFilePatch" Type="nvarchar(max)" />
-    <Property Name="Discontinued" Type="bit" Nullable="false" />
     <Property Name="ReorderLevel" Type="int" Nullable="false" />
     <Property Name="Rating" Type="tinyint" Nullable="false" />
+    <Property Name="Discontinued" Type="bit" Nullable="false" />
+    <Property Name="Details" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>

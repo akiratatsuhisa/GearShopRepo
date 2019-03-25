@@ -96,13 +96,14 @@
           <Property Name="CategoryID" Type="int" Nullable="false" />
           <Property Name="ManufacturerID" Type="int" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="18" Scale="6" />
-          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="PhotoFilePatch" Type="nvarchar(max)" />
           <Property Name="UnitsInStock" Type="int" />
           <Property Name="UpdatedDate" Type="datetime" />
-          <Property Name="PhotoFilePatch" Type="nvarchar(max)" />
-          <Property Name="Discontinued" Type="bit" Nullable="false" />
           <Property Name="ReorderLevel" Type="int" Nullable="false" />
           <Property Name="Rating" Type="tinyint" Nullable="false" />
+          <Property Name="Discontinued" Type="bit" Nullable="false" />
+          <Property Name="Details" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -345,13 +346,14 @@
           <Property Name="CategoryID" Type="Int32" Nullable="false" />
           <Property Name="ManufacturerID" Type="Int32" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="18" Scale="6" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhotoFilePatch" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UnitsInStock" Type="Int32" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="PhotoFilePatch" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Discontinued" Type="Boolean" Nullable="false" />
           <Property Name="ReorderLevel" Type="Int32" Nullable="false" />
           <Property Name="Rating" Type="Byte" Nullable="false" />
+          <Property Name="Discontinued" Type="Boolean" Nullable="false" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Category" Relationship="Self.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
           <NavigationProperty Name="Manufacturer" Relationship="Self.FK_Products_Manufacturers" FromRole="Products" ToRole="Manufacturers" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Products" FromRole="Products" ToRole="OrderDetails" />
@@ -593,13 +595,14 @@
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PhotoFilePatch" ColumnName="PhotoFilePatch" />
                 <ScalarProperty Name="UnitsInStock" ColumnName="UnitsInStock" />
                 <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="PhotoFilePatch" ColumnName="PhotoFilePatch" />
-                <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
                 <ScalarProperty Name="ReorderLevel" ColumnName="ReorderLevel" />
                 <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

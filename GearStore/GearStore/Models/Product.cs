@@ -25,13 +25,14 @@ namespace GearStore.Models
         public int CategoryID { get; set; }
         public int ManufacturerID { get; set; }
         public Nullable<decimal> Price { get; set; }
-        public string Description { get; set; }
+        public string PhotoFilePatch { get; set; }
         public Nullable<int> UnitsInStock { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
-        public string PhotoFilePatch { get; set; }
-        public bool Discontinued { get; set; }
         public int ReorderLevel { get; set; }
         public byte Rating { get; set; }
+        public bool Discontinued { get; set; }
+        public string Details { get; set; }
+        public string Description { get; set; }
     
         public virtual Category Category { get; set; }
         public virtual Manufacturer Manufacturer { get; set; }
