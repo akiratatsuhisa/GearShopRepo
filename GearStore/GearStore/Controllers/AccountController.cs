@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -80,10 +82,54 @@ namespace GearStore.Controllers
             Response.SetCookie(userCookie);
             return RedirectToAction("Index", "Home");
         }
-
-        public ActionResult Details()
+        public ActionResult Details(int? id)
         {
-            return Content(Request.Cookies["Account"]?["UserName"] ?? "404 NotFound Account");
+            string message;
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (FailCheck(id.Value, out message))
+            {
+                ViewBag.Message = message;
+                return RedirectToAction("SignIn");
+            }
+            var obj = _dataContext.Customers.SingleOrDefault(p => p.CustomerID == id);
+            return View(new AcccountDetailsViewModel
+            {
+                CustomerID = obj.CustomerID,
+                Username = obj.Username,
+                Email = obj.Email,
+                FullName = obj.FullName,
+                BirthDate = obj.BirthDate,
+                Gender = obj.Gender,
+                Address = obj.Address,
+                PhoneNumber = obj.PhoneNumber
+            });
+        }
+        [HttpPost,ActionName("Details")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> UpdateDetails(AcccountDetailsViewModel account)
+        {
+            if (ModelState.IsValid)
+            {
+                string message;
+                if (FailCheck(account.CustomerID, out message))
+                {
+                    ViewBag.Message = message;
+                    return RedirectToAction("SignIn");
+                }
+                var obj = await _dataContext.Customers.SingleOrDefaultAsync(p => p.CustomerID == account.CustomerID);
+                obj.Email = account.Email;
+                obj.FullName = account.FullName;
+                obj.Gender = account.Gender;
+                obj.BirthDate = account.BirthDate;
+                obj.PhoneNumber = account.PhoneNumber;
+                obj.Address = account.Address;
+                await _dataContext.SaveChangesAsync();
+                return View(nameof(Details),account);
+            }
+            return View(account);
         }
         protected override void Dispose(bool disposing)
         {
@@ -92,6 +138,34 @@ namespace GearStore.Controllers
                 _dataContext.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public bool FailCheck(int requestId, out string message)
+        {
+            message = "";
+            var acccount = Request.Cookies["Account"];
+            if (acccount == null)
+            {
+                message = "Vui lòng đăng nhập";
+                return true;
+            }
+            var id = int.Parse(acccount["ID"]);
+            var model = _dataContext.Customers.SingleOrDefault(p => p.CustomerID == id);
+            if (id != requestId)
+            {
+                message = "Vui lòng đăng nhập.";
+                return true;
+            }
+            if (model.IsDisabled)
+            {
+                message = "Tài khoản đã bị khóa";
+                return true;
+            }
+            else if (model.Password != acccount["Password"])
+            {
+                message = "Mật khẩu đã bị thay đổi, vui lòng đăng nhập lại";
+                return true;
+            }
+            return false;
         }
     }
 }
