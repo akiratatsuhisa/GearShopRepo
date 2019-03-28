@@ -23,6 +23,7 @@
     <WebStackScaffolding_IsViewGenerationSelected>False</WebStackScaffolding_IsViewGenerationSelected>
     <ProjectView>ProjectFiles</ProjectView>
     <NameOfLastUsedPublishProfile>FolderProfile</NameOfLastUsedPublishProfile>
+    <WebStackScaffolding_AreaDialogWidth>600</WebStackScaffolding_AreaDialogWidth>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
