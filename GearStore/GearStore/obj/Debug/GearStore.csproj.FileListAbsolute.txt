@@ -77,9 +77,6 @@ D:\Hutech\lập trình web asp\đồ án\GearStore\GearStore\obj\Debug\GearStore
 D:\Hutech\lập trình web asp\đồ án\GearStore\GearStore\obj\Debug\GearStore.csproj.CopyComplete
 D:\Hutech\lập trình web asp\đồ án\GearStore\GearStore\obj\Debug\GearStore.dll
 D:\Hutech\lập trình web asp\đồ án\GearStore\GearStore\obj\Debug\GearStore.pdb
-C:\Users\akiratatsuhisa\source\repos\GearStore\GearStore\obj\Debug\GearStore.csproj.CoreCompileInputs.cache
-C:\Users\akiratatsuhisa\source\repos\GearStore\GearStore\obj\Debug\GearStore.dll
-C:\Users\akiratatsuhisa\source\repos\GearStore\GearStore\obj\Debug\GearStore.pdb
 C:\Users\akiratatsuhisa\source\repos\GearStore\GearStore\bin\GearStore.dll.config
 C:\Users\akiratatsuhisa\source\repos\GearStore\GearStore\bin\GearStore.dll
 C:\Users\akiratatsuhisa\source\repos\GearStore\GearStore\bin\GearStore.pdb
@@ -159,5 +156,8 @@ C:\Users\akiratatsuhisa\source\repos\GearStore\GearStore\bin\Antlr3.Runtime.pdb
 C:\Users\akiratatsuhisa\source\repos\GearStore\GearStore\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\akiratatsuhisa\source\repos\GearStore\GearStore\bin\Microsoft.AspNet.TelemetryCorrelation.xml
 C:\Users\akiratatsuhisa\source\repos\GearStore\GearStore\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\akiratatsuhisa\source\repos\GearStore\GearStore\obj\Debug\GearStore.csproj.CoreCompileInputs.cache
 C:\Users\akiratatsuhisa\source\repos\GearStore\GearStore\obj\Debug\GearStore.csproj.CopyComplete
+C:\Users\akiratatsuhisa\source\repos\GearStore\GearStore\obj\Debug\GearStore.dll
+C:\Users\akiratatsuhisa\source\repos\GearStore\GearStore\obj\Debug\GearStore.pdb
 C:\Users\akiratatsuhisa\source\repos\GearStore\GearStore\obj\Debug\GearStore.csprojAssemblyReference.cache
