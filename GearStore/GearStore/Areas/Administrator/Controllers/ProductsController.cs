@@ -8,6 +8,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GearStore.Models;
+using GearStore.Areas.Administrator.Models;
+using System.IO;
 
 namespace GearStore.Areas.Administrator.Controllers
 {
@@ -50,15 +52,31 @@ namespace GearStore.Areas.Administrator.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "ProductID,ProductName,CategoryID,ManufacturerID,Price,PhotoFilePatch,UnitsInStock,UpdatedDate,ReorderLevel,Rating,Discontinued,Details,Description")] Product product)
+        public async Task<ActionResult> Create(ProductViewModel product)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && product.UploadImage != null)
             {
-                db.Products.Add(product);
+                var fileName = Path.GetFileName(product.UploadImage.FileName);
+                var path = Path.Combine(Server.MapPath("~/images/products/"), fileName);
+                product.UploadImage.SaveAs(path);
+                db.Products.Add(new Product
+                {
+                    ProductName = product.ProductName.Trim(),
+                    CategoryID = product.CategoryID,
+                    ManufacturerID = product.ManufacturerID,
+                    Price = product.Price,
+                    PhotoFilePatch = fileName,
+                    UnitsInStock = product.UnitsInStock,
+                    UpdatedDate = product.UpdatedDate ?? DateTime.Now,
+                    ReorderLevel = product.ReorderLevel,
+                    Rating = product.Rating,
+                    Discontinued = product.Discontinued,
+                    Description = string.IsNullOrWhiteSpace(product.Description) ? null : product.Description.Trim(),
+                    Details = string.IsNullOrWhiteSpace(product.Details) ? null : product.Details.Trim()
+                });
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
             ViewBag.ManufacturerID = new SelectList(db.Manufacturers, "ManufacturerID", "ManufacturerName", product.ManufacturerID);
             return View(product);
@@ -78,7 +96,22 @@ namespace GearStore.Areas.Administrator.Controllers
             }
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "CategoryName", product.CategoryID);
             ViewBag.ManufacturerID = new SelectList(db.Manufacturers, "ManufacturerID", "ManufacturerName", product.ManufacturerID);
-            return View(product);
+            return View(new ProductViewModel
+            {
+                ProductID = product.ProductID,
+                ProductName = product.ProductName,
+                CategoryID = product.CategoryID,
+                ManufacturerID = product.ManufacturerID,
+                Price = product.Price,
+                PhotoFilePatch = product.PhotoFilePatch,
+                UnitsInStock = product.UnitsInStock,
+                UpdatedDate = product.UpdatedDate,
+                ReorderLevel = product.ReorderLevel,
+                Rating = product.Rating,
+                Discontinued = product.Discontinued,
+                Description = product.Description,
+                Details = product.Details,
+            });
         }
 
         // POST: Administrator/Products/Edit/5
@@ -86,11 +119,33 @@ namespace GearStore.Areas.Administrator.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "ProductID,ProductName,CategoryID,ManufacturerID,Price,PhotoFilePatch,UnitsInStock,UpdatedDate,ReorderLevel,Rating,Discontinued,Details,Description")] Product product)
+        public async Task<ActionResult> Edit(ProductViewModel product)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
+                string fileName = null;
+                if (product.UploadImage != null)
+                {
+                    fileName = Path.GetFileName(product.UploadImage.FileName);
+                    var path = Path.Combine(Server.MapPath("~/images/products/"), fileName);
+                    product.UploadImage.SaveAs(path);
+                }
+                db.Entry(new Product
+                {
+                    ProductID = product.ProductID,
+                    ProductName = product.ProductName.Trim(),
+                    CategoryID = product.CategoryID,
+                    ManufacturerID = product.ManufacturerID,
+                    Price = product.Price,
+                    PhotoFilePatch = fileName ?? product.PhotoFilePatch,
+                    UnitsInStock = product.UnitsInStock,
+                    UpdatedDate = product.UpdatedDate ?? DateTime.Now,
+                    ReorderLevel = product.ReorderLevel,
+                    Rating = product.Rating,
+                    Discontinued = product.Discontinued,
+                    Description = string.IsNullOrWhiteSpace(product.Description) ? null : product.Description.Trim(),
+                    Details = string.IsNullOrWhiteSpace(product.Details) ? null : product.Details.Trim()
+                }).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }

@@ -5,7 +5,7 @@
 {
     <li class="mobile-links__item" data-collapse-item>
         <div class="mobile-links__item-title">
-            <a href="@Url.Action("SignIn","Account")" class="mobile-links__item-link">Đăng nhập</a>
+            <a href="@Url.Action("SignIn","Account",new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })" class="mobile-links__item-link">Đăng nhập</a>
         </div>
     </li>
     <li class="mobile-links__item" data-collapse-item>

@@ -130,7 +130,7 @@
                                                     </div>
                                                     <div class="product-card__prices">@Html.DisplayFor(model => item.Price)</div>
                                                     <div class="product-card__buttons">
-                                                        <form method="post" action="@Url.Action("AddToCart","Cart")">
+                                                        <form method="post" action="@Url.Action("AddToCart","Cart",new { returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery })">
                                                             <input type="number" name="id" value="@item.ProductID" hidden />
                                                             @if (item.Discontinued)
                                                             {

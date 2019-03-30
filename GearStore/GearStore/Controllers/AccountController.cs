@@ -13,13 +13,15 @@ namespace GearStore.Controllers
     {
         private ElectronicComponentsSMEntities _dataContext = new ElectronicComponentsSMEntities();
         // GET: Account/SignIn
-        public ActionResult SignIn()
+        public ActionResult SignIn(string returnUrl)
         {
+            ViewBag.Message = TempData["Message"];
+            ViewBag.ReturnUrl = returnUrl;
             return View();
         }
         [HttpPost, ActionName("SignIn")]
         [ValidateAntiForgeryToken]
-        public ActionResult SignIn([Bind(Include = "Username, Password")] SignInViewModel account)
+        public ActionResult SignIn([Bind(Include = "Username, Password")] SignInViewModel account,string returnUrl)
         {
             if (ModelState.IsValid)
             {
@@ -40,9 +42,13 @@ namespace GearStore.Controllers
                 userCookie["Password"] = account.Password;
                 userCookie.Expires = DateTime.Now.AddDays(1);
                 Response.SetCookie(userCookie);
-                return RedirectToAction("Index", "Home");
-
+                if (string.IsNullOrWhiteSpace(returnUrl))
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                return Redirect(returnUrl);
             }
+            ViewBag.ReturnUrl = returnUrl;
             return View(account);
         }
         // GET: Account/SignUp

@@ -137,8 +137,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
+    <Compile Include="Areas\Administrator\Controllers\CustomAttributes\AdminAuthorize.cs" />
     <Compile Include="Areas\Administrator\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administrator\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\Administrator\Models\AccountViewModel.cs" />
+    <Compile Include="Areas\Administrator\Models\ProductViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CustomAttributes\UserAuthorize.cs" />
@@ -219,6 +222,7 @@
     <Content Include="Areas\Administrator\Assets\img\Macbook.png" />
     <Content Include="Areas\Administrator\Assets\img\mask.png" />
     <Content Include="Areas\Administrator\Assets\img\new_logo.png" />
+    <Content Include="Areas\Administrator\Assets\img\noimage.jpg" />
     <Content Include="Areas\Administrator\Assets\img\notification.png" />
     <Content Include="Areas\Administrator\Assets\img\react.png" />
     <Content Include="Areas\Administrator\Assets\img\sidebar-1.jpg" />
@@ -639,7 +643,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administrator\Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
