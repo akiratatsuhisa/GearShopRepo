@@ -1,4 +1,5 @@
-﻿using GearStore.Models;
+﻿using GearStore.Controllers.CustomAttributes;
+using GearStore.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -115,6 +116,11 @@ namespace GearStore.Controllers
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Index", "Products");
+        }
+        [UserAuthorize]
+        public ActionResult CheckOut()
+        {
+            return Content("Is CheckOuted");
         }
         protected override void Dispose(bool disposing)
         {

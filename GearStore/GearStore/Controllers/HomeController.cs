@@ -14,7 +14,6 @@ namespace GearStore.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            ViewBag.IsHomePage = true;
             return View(_dataContext.Products.OrderByDescending(p=>p.UpdatedDate).Take(6));
         }
         [ChildActionOnly]
@@ -27,7 +26,11 @@ namespace GearStore.Controllers
         {
             return PartialView(_dataContext.Menus.Include(p => p.Categories));
         }
-
+        [ChildActionOnly]
+        public ActionResult MenuMobile()
+        {
+            return PartialView(_dataContext.Menus.Include(p => p.Categories));
+        }
         public ActionResult About()
         {
             return View();
