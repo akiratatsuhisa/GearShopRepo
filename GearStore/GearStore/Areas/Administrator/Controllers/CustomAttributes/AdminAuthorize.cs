@@ -24,7 +24,7 @@ namespace GearStore.Areas.Administrator.Controllers.CustomAttributes
                 using (var dataContext = new ElectronicComponentsSMEntities())
                 {
                     var id = int.Parse(account["ID"]);
-                    var model = dataContext.Customers.SingleOrDefault(p => p.CustomerID == id);
+                    var model = dataContext.Customers.Find(id);
                     if (model.IsDisabled)
                     {
                         message = "Tài khoản đã bị khóa";
@@ -52,7 +52,7 @@ namespace GearStore.Areas.Administrator.Controllers.CustomAttributes
                 filterContext.Result = new RedirectResult("/Administrator");
             }
         }
-        public static bool Check(int Order, int JobID)
+        private static bool Check(int Order, int JobID)
         {
             switch (Order)
             {
