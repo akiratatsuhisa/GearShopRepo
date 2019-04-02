@@ -6,7 +6,7 @@ using System.Web;
 
 namespace GearStore.Areas.Administrator.Models
 {
-    public class SignInViewModel
+    public class EmployeeSignInViewModel
     {
         [Required]
         [DataType(DataType.Text)]
