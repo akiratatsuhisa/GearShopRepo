@@ -123,6 +123,9 @@ namespace GearStore.Controllers
         {
             if (Session["Cart"] is CartViewModel cart && cart.Items.Count > 0)
             {
+                var account = Request.Cookies["Account"];
+                var customerID = int.Parse(account["ID"]);
+                ViewBag.Account = _dataContext.Customers.Find(customerID);
                 Session["CheckoutCart"] = cart;
                 return View(cart);
             }
@@ -182,7 +185,7 @@ namespace GearStore.Controllers
 
         public ActionResult IsCheckout()
         {
-            return Content("Xong rồi nhé");
+            return View();
         }
 
         protected override void Dispose(bool disposing)
