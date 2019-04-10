@@ -25,6 +25,15 @@
     <link href="~/fonts/stroyka.css" rel="stylesheet" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97489509-6"></script>
     <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-97489509-6');</script>
+    <!--API Google-->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!--React-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+    <script src="~/Scripts/react.min.js"></script>
+    <script src="~/Scripts/react-dom.min.js"></script>
+    <script src="~/Scripts/reactjs/timereact.jsx"></script>
 </head>
 <body>
     <!-- quickview-modal -->
@@ -186,13 +195,7 @@
                                 <a class="topbar-link" href="@Url.Action("Contact","Home")">Liên Hệ</a>
                             </div>
                             <div class="topbar__item topbar__item--link">
-                                <a class="topbar-link" href="#">Vị Trí</a>
-                            </div>
-                            <div class="topbar__item topbar__item--link">
-                                <a class="topbar-link" href="#">Kiểm Tra Đơn Hàng</a>
-                            </div>
-                            <div class="topbar__item topbar__item--link">
-                                <a class="topbar-link" href="#">Blog</a>
+                                <a class="topbar-link" href="https://www.facebook.com/Gear-X%C3%B3m-Ch%C3%B9a-Thi%E1%BA%BFt-b%E1%BB%8B-ch%C6%A1i-game-h%C3%A0ng-%C4%91%E1%BA%A7u-Vi%E1%BB%87t-Nam-2312642568983517/?ref=br_rs">Fanpage</a>
                             </div>
                             <div class="topbar__spring"></div>
                             <div class="topbar__item">
@@ -446,32 +449,67 @@
                                         <input type="text" class="footer-newsletter__form-input form-control" id="footer-newsletter-address" placeholder="Email Address...">
                                         <button class="footer-newsletter__form-button btn btn-primary" style="width:130px">Đăng Ký</button>
                                     </form>
-                                    <div class="footer-newsletter__text footer-newsletter__text--social">Theo Dõi Chúng Tôi Trên Mạng Xã Hội</div>
+                                    <div class="footer-newsletter__text footer-newsletter__text--social">Theo Dõi  và chia sẻ Chúng Tôi Trên Mạng Xã Hội</div>
                                     <ul class="footer-newsletter__social-links">
-                                        <li class="footer-newsletter__social-link footer-newsletter__social-link--facebook">
-                                            <a href="https://www.facebook.com/Gear-Xóm-Chùa-Thiết-bị-chơi-game-hàng-đầu-Việt-Nam-2312642568983517" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                        <li>
+                                            <div id="fb-root"></div>
+                                            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=343326169648123&autoLogAppEvents=1"></script>
+                                            <div class="fb-share-button" data-href="https://www.facebook.com/Gear-X&#xf3;m-Ch&#xf9;a-Thi&#x1ebf;t-b&#x1ecb;-ch&#x1a1;i-game-h&#xe0;ng-&#x111;&#x1ea7;u-Vi&#x1ec7;t-Nam-2312642568983517" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2FGear-X%C3%B3m-Ch%C3%B9a-Thi%E1%BA%BFt-b%E1%BB%8B-ch%C6%A1i-game-h%C3%A0ng-%C4%91%E1%BA%A7u-Vi%E1%BB%87t-Nam-2312642568983517&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
                                         </li>
-                                        <li class="footer-newsletter__social-link footer-newsletter__social-link--twitter">
-                                            <a href="https://www.facebook.com/Gear-Xóm-Chùa-Thiết-bị-chơi-game-hàng-đầu-Việt-Nam-2312642568983517" target="_blank"><i class="fab fa-twitter"></i></a>
-                                        </li>
-                                        <li class="footer-newsletter__social-link footer-newsletter__social-link--youtube">
-                                            <a href="https://www.facebook.com/Gear-Xóm-Chùa-Thiết-bị-chơi-game-hàng-đầu-Việt-Nam-2312642568983517" target="_blank"><i class="fab fa-youtube"></i></a>
+                                        <li>
+                                            <script src="https://apis.google.com/js/platform.js"></script>
+                                            <div class="g-ytsubscribe" data-channelid="UCn61R23TYFp8KbiNxHSDfbg" data-layout="default" data-count="default"></div>
                                         </li>
                                         <li class="footer-newsletter__social-link footer-newsletter__social-link--instagram">
-                                            <a href="https://www.facebook.com/Gear-Xóm-Chùa-Thiết-bị-chơi-game-hàng-đầu-Việt-Nam-2312642568983517" target="_blank"><i class="fab fa-instagram"></i></a>
+                                            <a href="https://www.facebook.com/Gear-X%C3%B3m-Ch%C3%B9a-Thi%E1%BA%BFt-b%E1%BB%8B-ch%C6%A1i-game-h%C3%A0ng-%C4%91%E1%BA%A7u-Vi%E1%BB%87t-Nam-2312642568983517/?ref=br_rs" target="_blank"><i class="fab fa-instagram"></i></a>
                                         </li>
                                         <li class="footer-newsletter__social-link footer-newsletter__social-link--rss">
-                                            <a href="https://www.facebook.com/Gear-Xóm-Chùa-Thiết-bị-chơi-game-hàng-đầu-Việt-Nam-2312642568983517" target="_blank"><i class="fas fa-rss"></i></a>
+                                            <a href="https://www.facebook.com/Gear-X%C3%B3m-Ch%C3%B9a-Thi%E1%BA%BFt-b%E1%BB%8B-ch%C6%A1i-game-h%C3%A0ng-%C4%91%E1%BA%A7u-Vi%E1%BB%87t-Nam-2312642568983517/?ref=br_rs" target="_blank"><i class="fas fa-rss"></i></a>
                                         </li>
                                     </ul>
+                                    <h5 class="footer-newsletter__title">Fanpage</h5>
+                                    <div id="fb-root"></div>
+                                    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=343326169648123&autoLogAppEvents=1"></script>
+                                    <div class="fb-page" data-href="https://www.facebook.com/Gear-X&#xf3;m-Ch&#xf9;a-Thi&#x1ebf;t-b&#x1ecb;-ch&#x1a1;i-game-h&#xe0;ng-&#x111;&#x1ea7;u-Vi&#x1ec7;t-Nam-2312642568983517" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Gear-X&#xf3;m-Ch&#xf9;a-Thi&#x1ebf;t-b&#x1ecb;-ch&#x1a1;i-game-h&#xe0;ng-&#x111;&#x1ea7;u-Vi&#x1ec7;t-Nam-2312642568983517" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Gear-X&#xf3;m-Ch&#xf9;a-Thi&#x1ebf;t-b&#x1ecb;-ch&#x1a1;i-game-h&#xe0;ng-&#x111;&#x1ea7;u-Vi&#x1ec7;t-Nam-2312642568983517">Gear Xóm Chùa - Thiết bị chơi game hàng đầu Việt Nam</a></blockquote></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="site-footer__bottom">
-                        <div class="site-footer__copyright">
+                        <div class="site-footer__copyright root">
                             &copy; Copyright @DateTime.Now.Year
-                            <a href="#" target="_blank" style="font-weight:bold;"> Gear Xóm Chùa</a>
+                            <a href="" target="_blank" style="font-weight:bold;"> Gear Xóm Chùa</a>
+
+                            <div id="root"></div>
+                            <script type="text/babel">
+                                class Greeting extends React.Component {
+                                constructor(props) {
+                                super(props)
+                                this.state = {
+                                time: new Date()
+                                }
+                                }
+                                componentDidMount() {
+                                setInterval(this.update, 1000)
+                                }
+                                update = () => {
+                                this.setState({
+                                time: new Date()
+                                })
+                                };
+                                render() {
+                                const h = this.state.time.getHours()
+                                const m = this.state.time.getMinutes()
+                                const s = this.state.time.getSeconds()
+                                return (
+                                <p>@DateTime.Now.ToShortDateString().ToString() {h % 12}:{(m < 10 ? '0' + m : m)}:{(s < 10 ? '0' + s : s)} {h < 12 ? 'am' : 'pm'}</p>);
+                                }
+                                }
+                                ReactDOM.render(
+                                <Greeting />,
+                                document.getElementById('root')
+                                );
+                            </script>
                         </div>
                         <div class="site-footer__payments">
                             <img src="~/images/payments.png" alt="">
